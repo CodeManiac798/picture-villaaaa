@@ -51,32 +51,36 @@ export function Navbar() {
         style={{ height: 'var(--header-height)' }}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.3em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)"
-            aria-label="The Picture Villa — home"
-          >
-            The Picture Villa
-          </Link>
+          {/* Left — brand + primary nav as one evenly-spaced unit, so the
+              gap after the logo matches the gaps between nav links. */}
+          <div className="flex items-center gap-8 xl:gap-11">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.3em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)"
+              aria-label="The Picture Villa — home"
+            >
+              The Picture Villa
+            </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-9 lg:flex xl:gap-12" aria-label="Primary navigation">
-            {NAV_CONFIG.primary.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  'relative text-label tracking-[0.2em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)',
-                  'after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:bg-(--color-gold)',
-                  'after:origin-right after:scale-x-0 after:transition-transform after:duration-500 after:ease-(--ease-luxury)',
-                  'hover:after:origin-left hover:after:scale-x-100',
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-8 lg:flex xl:gap-11" aria-label="Primary navigation">
+              {NAV_CONFIG.primary.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    'relative text-label tracking-[0.2em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)',
+                    'after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:bg-(--color-gold)',
+                    'after:origin-right after:scale-x-0 after:transition-transform after:duration-500 after:ease-(--ease-luxury)',
+                    'hover:after:origin-left hover:after:scale-x-100',
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
           {/* Desktop right cluster — Instagram + CTA */}
           <div className="hidden items-center gap-7 lg:flex">
