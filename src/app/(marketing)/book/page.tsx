@@ -21,11 +21,11 @@ export default function BookPage() {
           style={{ paddingTop: 'calc(var(--header-height) + 4rem)' }}
         >
           <Container>
-            <p className="text-label text-[--color-sandstone]/40 mb-4">Private Access</p>
-            <h1 className="font-display text-display-xl text-[--color-ivory]">
+            <p className="text-label text-(--color-sandstone)/40 mb-4">Private Access</p>
+            <h1 className="font-display text-display-xl text-(--color-ivory)">
               Let&apos;s plan<br />your shoot.
             </h1>
-            <p className="mt-4 text-body text-[--color-sandstone]/55 max-w-sm">
+            <p className="mt-4 text-body text-(--color-sandstone)/55 max-w-sm">
               Every shoot begins with a conversation. Reach us on WhatsApp — we&apos;ll take it from there.
             </p>
           </Container>
@@ -39,11 +39,11 @@ export default function BookPage() {
 
             {/* WhatsApp — primary channel */}
             <div>
-              <p className="text-label text-[--color-mist] mb-6">Primary — WhatsApp</p>
-              <p className="font-display text-display-lg text-[--color-charcoal] mb-4 leading-tight">
+              <p className="text-label text-(--color-mist) mb-6">Primary — WhatsApp</p>
+              <p className="font-display text-display-lg text-(--color-charcoal) mb-4 leading-tight">
                 The fastest<br />way to reach us.
               </p>
-              <p className="text-body text-[--color-mist] mb-8 max-w-sm leading-relaxed">
+              <p className="text-body text-(--color-mist) mb-8 max-w-sm leading-relaxed">
                 Message us on WhatsApp with your vision, preferred dates, and the spaces you have in mind. We respond within the hour during business hours.
               </p>
               <WhatsAppCTA
@@ -55,40 +55,40 @@ export default function BookPage() {
 
             {/* Direct contact */}
             <div>
-              <p className="text-label text-[--color-mist] mb-6">Direct Contact</p>
-              <p className="font-display text-display-lg text-[--color-charcoal] mb-8 leading-tight">
+              <p className="text-label text-(--color-mist) mb-6">Direct Contact</p>
+              <p className="font-display text-display-lg text-(--color-charcoal) mb-8 leading-tight">
                 Or reach us<br />directly.
               </p>
 
               <div className="space-y-7">
                 <div>
-                  <p className="text-label text-[--color-mist] mb-2">Phone</p>
+                  <p className="text-label text-(--color-mist) mb-2">Phone</p>
                   <a
                     href={`tel:${SITE.contact.phone}`}
-                    className="text-body text-[--color-charcoal] hover:text-[--color-gold] transition-colors duration-200"
+                    className="text-body text-(--color-charcoal) hover:text-(--color-gold) transition-colors duration-200"
                   >
                     {SITE.contact.phoneDisplay}
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-label text-[--color-mist] mb-2">Email</p>
+                  <p className="text-label text-(--color-mist) mb-2">Email</p>
                   <a
                     href={`mailto:${SITE.contact.email}`}
-                    className="text-body text-[--color-charcoal] hover:text-[--color-gold] transition-colors duration-200"
+                    className="text-body text-(--color-charcoal) hover:text-(--color-gold) transition-colors duration-200"
                   >
                     {SITE.contact.email}
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-label text-[--color-mist] mb-2">Location</p>
-                  <p className="text-body text-[--color-charcoal]">{SITE.location.address}</p>
+                  <p className="text-label text-(--color-mist) mb-2">Location</p>
+                  <p className="text-body text-(--color-charcoal)">{SITE.location.address}</p>
                   <a
                     href={SITE.location.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2.5 inline-flex items-center gap-1.5 text-label text-[--color-gold] tracking-[0.14em] uppercase hover:text-[--color-gold-light] transition-colors duration-200"
+                    className="mt-2.5 inline-flex items-center gap-1.5 text-label text-(--color-gold) tracking-[0.14em] uppercase hover:text-(--color-gold-light) transition-colors duration-200"
                   >
                     Open in Maps
                     <svg viewBox="0 0 8 8" className="w-2 h-2" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -97,8 +97,8 @@ export default function BookPage() {
                   </a>
                 </div>
 
-                <div className="pt-5 border-t border-[--color-beige]">
-                  <p className="text-body-sm text-[--color-mist] leading-relaxed">
+                <div className="pt-5 border-t border-(--color-beige)">
+                  <p className="text-body-sm text-(--color-mist) leading-relaxed">
                     Available for walkthroughs<br />Tuesday – Sunday, 10 am – 6 pm.
                   </p>
                 </div>

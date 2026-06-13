@@ -16,18 +16,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary: [
-    'bg-[--color-charcoal] text-[--color-ivory]',
-    'hover:bg-[--color-ink]',
-    'border border-[--color-charcoal]',
+    'bg-(--color-charcoal) text-(--color-ivory)',
+    'hover:bg-(--color-ink)',
+    'border border-(--color-charcoal)',
   ].join(' '),
   secondary: [
-    'bg-transparent text-[--color-charcoal]',
-    'border border-[--color-charcoal]',
-    'hover:bg-[--color-charcoal] hover:text-[--color-ivory]',
+    'bg-transparent text-(--color-charcoal)',
+    'border border-(--color-charcoal)',
+    'hover:bg-(--color-charcoal) hover:text-(--color-ivory)',
   ].join(' '),
   ghost: [
-    'bg-transparent text-[--color-charcoal]',
-    'hover:text-[--color-gold]',
+    'bg-transparent text-(--color-charcoal)',
+    'hover:text-(--color-gold)',
     'underline-offset-4 hover:underline',
   ].join(' '),
   whatsapp: [

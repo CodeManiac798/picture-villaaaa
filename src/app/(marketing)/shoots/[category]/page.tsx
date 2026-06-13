@@ -43,7 +43,7 @@ export default async function ShootCategoryPage({ params }: Props) {
   return (
     <>
       {/* Hero — luminous, photography-first */}
-      <section className="relative min-h-[78vh] flex flex-col justify-end overflow-hidden bg-[--color-cream]">
+      <section className="relative min-h-[78vh] flex flex-col justify-end overflow-hidden bg-(--color-cream)">
         {/*
          * IMAGE SLOT — replace with:
          * <Image src={`/images/shoots/${shoot.slug}-hero.jpg`} alt="" fill priority className="object-cover" />
@@ -60,12 +60,12 @@ export default async function ShootCategoryPage({ params }: Props) {
 
         <Container className="relative z-10 pb-20 sm:pb-24" style={{ paddingTop: 'var(--header-height)' }}>
           <Reveal>
-            <p className="text-[0.6875rem] font-medium tracking-[0.3em] uppercase text-[--color-ivory]/75">
+            <p className="text-[0.6875rem] font-medium tracking-[0.3em] uppercase text-(--color-ivory)/75">
               {shoot.eyebrow}
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h1 className="mt-6 font-display text-display-2xl text-[--color-ivory] max-w-[16ch]">
+            <h1 className="mt-6 font-display text-display-2xl text-(--color-ivory) max-w-[16ch]">
               {shoot.headline}
             </h1>
           </Reveal>
@@ -73,19 +73,19 @@ export default async function ShootCategoryPage({ params }: Props) {
       </section>
 
       {/* Intro */}
-      <section className="bg-[--color-cream] py-20 sm:py-24 lg:py-28">
+      <section className="bg-(--color-cream) py-20 sm:py-24 lg:py-28">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <Reveal className="lg:col-span-8">
-              <p className="font-display text-2xl sm:text-3xl lg:text-[2.25rem] leading-snug text-[--color-charcoal] max-w-[24ch]">
+              <p className="font-display text-2xl sm:text-3xl lg:text-[2.25rem] leading-snug text-(--color-charcoal) max-w-[24ch]">
                 {shoot.name}
               </p>
-              <p className="mt-6 max-w-[54ch] text-body-lg text-[--color-charcoal]/75 leading-relaxed">
+              <p className="mt-6 max-w-[54ch] text-body-lg text-(--color-charcoal)/75 leading-relaxed">
                 {shoot.intro}
               </p>
             </Reveal>
             <Reveal className="lg:col-span-4 lg:text-right" delay={0.1}>
-              <p className="font-display italic text-xl text-[--color-gold]">
+              <p className="font-display italic text-xl text-(--color-gold)">
                 {spaces.length} spaces suited to this work
               </p>
             </Reveal>
@@ -94,10 +94,10 @@ export default async function ShootCategoryPage({ params }: Props) {
       </section>
 
       {/* Curated spaces */}
-      <section className="bg-[--color-ivory] py-16 sm:py-20 lg:py-24">
+      <section className="bg-(--color-ivory) py-16 sm:py-20 lg:py-24">
         <Container>
           <Reveal>
-            <p className="text-label text-[--color-mist] mb-10 lg:mb-14">Recommended backdrops</p>
+            <p className="text-label text-(--color-mist) mb-10 lg:mb-14">Recommended backdrops</p>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {spaces.map((space, i) => (
@@ -110,7 +110,7 @@ export default async function ShootCategoryPage({ params }: Props) {
       </section>
 
       {/* Concierge CTA */}
-      <section className="relative bg-[--color-cream] overflow-hidden">
+      <section className="relative bg-(--color-cream) overflow-hidden">
         <div
           className="absolute inset-0"
           style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 115%, rgba(176,138,87,0.18), transparent 65%)' }}
@@ -118,12 +118,12 @@ export default async function ShootCategoryPage({ params }: Props) {
         />
         <Container className="relative z-10 py-24 sm:py-28 lg:py-32 text-center">
           <Reveal>
-            <p className="text-[0.6875rem] font-medium tracking-[0.3em] uppercase text-[--color-gold]">
+            <p className="text-[0.6875rem] font-medium tracking-[0.3em] uppercase text-(--color-gold)">
               Private Bookings &middot; By Appointment
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mx-auto mt-7 max-w-[18ch] font-display text-display-lg text-[--color-charcoal]">
+            <h2 className="mx-auto mt-7 max-w-[18ch] font-display text-display-lg text-(--color-charcoal)">
               Tell us about your shoot.
             </h2>
           </Reveal>
@@ -133,13 +133,13 @@ export default async function ShootCategoryPage({ params }: Props) {
                 href={buildWhatsAppUrl(waMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-[54px] px-11 rounded-full bg-[--color-charcoal] text-[--color-ivory] text-label tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[--color-ink] hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(23,20,18,0.22)]"
+                className="inline-flex items-center justify-center h-[54px] px-11 rounded-full bg-(--color-charcoal) text-(--color-ivory) text-label tracking-[0.18em] uppercase transition-all duration-300 hover:bg-(--color-ink) hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(23,20,18,0.22)]"
               >
                 Message the Concierge
               </a>
               <Link
                 href="/spaces"
-                className="group relative py-2 text-label tracking-[0.18em] uppercase text-[--color-charcoal] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-[--color-gold]/50 after:transition-colors after:duration-300 hover:after:bg-[--color-gold]"
+                className="group relative py-2 text-label tracking-[0.18em] uppercase text-(--color-charcoal) after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-(--color-gold)/50 after:transition-colors after:duration-300 hover:after:bg-(--color-gold)"
               >
                 Browse all spaces
               </Link>

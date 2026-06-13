@@ -51,8 +51,8 @@ export function WhatsAppCTA({
       className={cn(
         'inline-flex items-center justify-center rounded-full',
         'font-body font-medium uppercase tracking-[0.14em]',
-        'bg-[--color-charcoal] text-[--color-ivory]',
-        'transition-all duration-300 hover:bg-[--color-ink] hover:-translate-y-0.5',
+        'bg-(--color-charcoal) text-(--color-ivory)',
+        'transition-all duration-300 hover:bg-(--color-ink) hover:-translate-y-0.5',
         'hover:shadow-[0_12px_32px_rgba(23,20,18,0.22)]',
         'min-w-[44px] min-h-[44px]',
         sizeClasses[size],

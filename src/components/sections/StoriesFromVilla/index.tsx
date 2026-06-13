@@ -65,7 +65,7 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
           </div>
 
           {/* warm overlay on hover */}
-          <div className="absolute inset-0 bg-[--color-ink]/0 transition-colors duration-500 group-hover:bg-[--color-ink]/25" aria-hidden="true" />
+          <div className="absolute inset-0 bg-(--color-ink)/0 transition-colors duration-500 group-hover:bg-(--color-ink)/25" aria-hidden="true" />
 
           {/* caption chip — slides up on hover */}
           {item.caption && (
@@ -83,19 +83,19 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
 
 export function StoriesFromVilla() {
   return (
-    <section className="relative bg-[--color-ivory] py-20 sm:py-24 lg:py-28">
+    <section className="relative bg-(--color-ivory) py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
 
         {/* Header */}
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <Reveal>
-              <p className="text-eyebrow text-[--color-gold]">Stories From The Villa</p>
+              <p className="text-eyebrow text-(--color-gold)">Stories From The Villa</p>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="text-heading text-balance mt-4 max-w-[18ch] text-[--color-ink]">
+              <h2 className="text-heading text-balance mt-4 max-w-[18ch] text-(--color-ink)">
                 Real moments,{' '}
-                <span className="accent-serif text-[--color-mist]">real people.</span>
+                <span className="accent-serif text-(--color-mist)">real people.</span>
               </h2>
             </Reveal>
           </div>
@@ -105,7 +105,7 @@ export function StoriesFromVilla() {
               href={SITE.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 pb-1 text-label uppercase tracking-[0.18em] text-[--color-mist] hover:text-[--color-ink] transition-colors duration-300"
+              className="group inline-flex items-center gap-2.5 pb-1 text-label uppercase tracking-[0.18em] text-(--color-mist) hover:text-(--color-ink) transition-colors duration-300"
             >
               See More
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -125,14 +125,14 @@ export function StoriesFromVilla() {
         {/* Instagram CTA */}
         <Reveal delay={0.1}>
           <div className="mt-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center sm:gap-6">
-            <p className="text-body text-[--color-mist]">
+            <p className="text-body text-(--color-mist)">
               More stories every week on Instagram.
             </p>
             <a
               href={SITE.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover-lift inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[--color-sandstone] px-7 text-label uppercase tracking-[0.18em] text-[--color-charcoal] transition-colors duration-300 hover:border-[--color-charcoal]"
+              className="hover-lift inline-flex h-11 items-center justify-center gap-2 rounded-full border border-(--color-sandstone) px-7 text-label uppercase tracking-[0.18em] text-(--color-charcoal) transition-colors duration-300 hover:border-(--color-charcoal)"
             >
               {SITE.social.instagramHandle}
             </a>

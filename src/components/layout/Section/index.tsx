@@ -3,10 +3,10 @@ import { cn } from '@/lib/utils/cn';
 type Background = 'ivory' | 'cream' | 'beige' | 'charcoal' | 'transparent';
 
 const bgClasses: Record<Background, string> = {
-  ivory:       'bg-[--color-ivory]',
-  cream:       'bg-[--color-cream]',
-  beige:       'bg-[--color-beige]',
-  charcoal:    'bg-[--color-charcoal]',
+  ivory:       'bg-(--color-ivory)',
+  cream:       'bg-(--color-cream)',
+  beige:       'bg-(--color-beige)',
+  charcoal:    'bg-(--color-charcoal)',
   transparent: 'bg-transparent',
 };
 

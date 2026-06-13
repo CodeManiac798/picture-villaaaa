@@ -45,8 +45,8 @@ export function SpacesGrid({ spaces }: SpacesGridProps) {
               'text-label tracking-[0.16em] uppercase pb-1 transition-all duration-200',
               'border-b',
               active === value
-                ? 'text-[--color-charcoal] border-[--color-charcoal]'
-                : 'text-[--color-mist] border-transparent hover:text-[--color-charcoal] hover:border-[--color-beige]',
+                ? 'text-(--color-charcoal) border-(--color-charcoal)'
+                : 'text-(--color-mist) border-transparent hover:text-(--color-charcoal) hover:border-(--color-beige)',
             )}
           >
             {label}

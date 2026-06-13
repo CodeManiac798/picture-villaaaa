@@ -117,21 +117,23 @@ function StoryCard({ archetype }: { archetype: StoryArchetype }) {
 
 export function ChooseYourStory() {
   return (
-    <section className="relative overflow-hidden bg-[--color-ivory] py-20 sm:py-24 lg:py-28">
+    // Compressed beat — tighter than its neighbours so the page breathes in
+    // before the categories and spaces open back up.
+    <section className="relative overflow-hidden bg-(--color-ivory) py-14 sm:py-16 lg:py-20">
 
       {/* Section header */}
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <Reveal>
-          <p className="text-eyebrow text-[--color-gold]">Choose Your Story</p>
+          <p className="text-eyebrow text-(--color-gold)">Choose Your Story</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="text-heading text-balance mt-5 max-w-[20ch] text-[--color-ink]">
+          <h2 className="text-heading text-balance mt-5 max-w-[20ch] text-(--color-ink)">
             Which version of your story{' '}
-            <span className="accent-serif text-[--color-mist]">are you?</span>
+            <span className="accent-serif text-(--color-mist)">are you?</span>
           </h2>
         </Reveal>
         <Reveal delay={0.14}>
-          <p className="text-body mt-4 max-w-[42ch] text-[--color-mist]">
+          <p className="text-body mt-4 max-w-[42ch] text-(--color-mist)">
             Every story looks different here. Find yours.
           </p>
         </Reveal>
@@ -160,7 +162,7 @@ export function ChooseYourStory() {
       {/* Scroll hint dots — mobile only */}
       <div className="mt-5 flex justify-center gap-1.5 lg:hidden" aria-hidden="true">
         {STORY_ARCHETYPES.map((a) => (
-          <span key={a.id} className="h-px w-4 bg-[--color-sandstone] rounded-full" />
+          <span key={a.id} className="h-px w-4 bg-(--color-sandstone) rounded-full" />
         ))}
       </div>
     </section>

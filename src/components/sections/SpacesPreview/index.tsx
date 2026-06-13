@@ -19,23 +19,23 @@ const rusticCafe = pick('rustic-cafe-and-bar');
 
 export function SpacesPreview() {
   return (
-    <section className="bg-[--color-cream] py-20 sm:py-24 lg:py-28 overflow-hidden">
+    <section className="bg-(--color-ivory) py-20 sm:py-24 lg:py-28 overflow-hidden">
       <Container>
 
         {/* Row A — header beside the hero plate */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-7 items-end mb-12 lg:mb-16">
           <div className="lg:col-span-5 lg:pb-6">
             <Reveal>
-              <p className="text-eyebrow text-[--color-gold]">Eighteen Worlds, One Estate</p>
+              <p className="text-eyebrow text-(--color-gold)">Eighteen Worlds, One Estate</p>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="text-heading text-balance mt-5 text-[--color-ink]">
+              <h2 className="text-heading text-balance mt-5 text-(--color-ink)">
                 A different world,{' '}
-                <span className="accent-serif text-[--color-mist]">every few steps.</span>
+                <span className="accent-serif text-(--color-mist)">every few steps.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-5 max-w-[40ch] text-body text-[--color-mist] leading-relaxed">
+              <p className="mt-5 max-w-[40ch] text-body text-(--color-mist) leading-relaxed">
                 A Rajput palace. A Moroccan courtyard. A library, a café, an English
                 garden — each one staged, lit and waiting for you to walk in.
               </p>
@@ -66,16 +66,16 @@ export function SpacesPreview() {
               <SpaceCard space={rusticCafe} aspect="landscape" />
             </Reveal>
             <Reveal>
-              <p className="font-display italic text-xl text-[--color-mist]">
+              <p className="font-display italic text-xl text-(--color-mist)">
                 — and {SPACES.length - 4} more worlds beyond these.
               </p>
               <Link
                 href="/spaces"
-                className="hover-lift mt-7 inline-flex h-12 items-center gap-3 rounded-full bg-[--color-ink] px-8 text-label tracking-[0.18em] uppercase text-[--color-ivory]"
+                className="hover-lift mt-7 inline-flex h-12 items-center gap-3 rounded-full bg-(--color-ink) px-8 text-label tracking-[0.18em] uppercase text-(--color-ivory)"
               >
                 Explore all {SPACES.length} spaces
                 <span
-                  className="h-px w-8 bg-[--color-gold-light] transition-all duration-500 ease-[--ease-luxury] group-hover:w-12"
+                  className="h-px w-8 bg-(--color-gold-light) transition-all duration-500 ease-(--ease-luxury) group-hover:w-12"
                   aria-hidden="true"
                 />
               </Link>

@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import {
   motion,
   useMotionValue,
+  useScroll,
   useSpring,
   useTransform,
   useReducedMotion,
@@ -71,7 +72,7 @@ const FRAMES: Frame[] = [
     sway: 0.5,
     bob: 6,
     swayDur: 9,
-    delay: 0.1,
+    delay: 0.85,
     kenburns: { scale: [1, 1.12], x: [0, -10], y: [0, 6] },
     grade: 'linear-gradient(158deg,#F5DBCF 0%,#E4AA90 36%,#C67F64 66%,#8E5742 100%)',
     eyebrow: 'Pre-Wedding · Golden Hour',
@@ -90,7 +91,7 @@ const FRAMES: Frame[] = [
     sway: 1.1,
     bob: 11,
     swayDur: 7.5,
-    delay: 0.32,
+    delay: 1.1,
     kenburns: { scale: [1, 1.14], x: [0, 8], y: [0, -6] },
     grade: 'linear-gradient(158deg,#F2E3C8 0%,#DBBD85 54%,#AA834C 100%)',
     eyebrow: 'Fashion',
@@ -108,7 +109,7 @@ const FRAMES: Frame[] = [
     sway: 1.3,
     bob: 13,
     swayDur: 8.5,
-    delay: 0.46,
+    delay: 1.25,
     kenburns: { scale: [1, 1.16], x: [0, -8], y: [0, 8] },
     grade: 'linear-gradient(158deg,#E8CDB6 0%,#B27F64 55%,#5E4233 100%)',
     eyebrow: 'Cinematic',
@@ -137,9 +138,9 @@ function CinematicFrame({
     <motion.div
       className={`absolute ${frame.box} ${frame.z}`}
       style={{ x: reduce ? 0 : tx, y: reduce ? 0 : ty }}
-      initial={reduce ? false : { opacity: 0, scale: 0.93 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: frame.delay }}
+      initial={reduce ? false : { opacity: 0, scale: 0.96, filter: 'blur(14px)' }}
+      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: frame.delay }}
     >
       {/* Inner: the physical photo — rests off-axis and sways/bobs, so it reads
           as hand-placed and alive rather than geometric. */}
@@ -224,6 +225,16 @@ export function HeroSection() {
   const sx = useSpring(mvX, { stiffness: 55, damping: 18, mass: 0.6 });
   const sy = useSpring(mvY, { stiffness: 55, damping: 18, mass: 0.6 });
 
+  // Departure parallax — scrolling away reads as a slow camera move, not a cut.
+  // Media recedes slower than the scroll; copy lifts away and dissolves first.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+  const mediaY = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const copyFade = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+
   function handlePointer(e: React.PointerEvent<HTMLElement>) {
     if (reduce) return;
     const rect = sectionRef.current?.getBoundingClientRect();
@@ -238,12 +249,13 @@ export function HeroSection() {
       onPointerMove={handlePointer}
       className="relative flex min-h-[100svh] flex-col overflow-hidden"
     >
-      {/* Living golden-hour wash — warm, never dark */}
+      {/* Living golden-hour wash — warm, never dark. Scales AND drifts laterally
+          so the ambient light feels like late-afternoon sun crawling, not a loop. */}
       <motion.div
-        className="absolute inset-0"
+        className="absolute -inset-[4%]"
         aria-hidden="true"
-        animate={reduce ? undefined : { scale: [1, 1.06] }}
-        transition={{ duration: 24, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
+        animate={reduce ? undefined : { scale: [1, 1.05], x: [0, -14], y: [0, 8] }}
+        transition={{ duration: 32, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
       >
         <div
           className="absolute inset-0"
@@ -273,11 +285,14 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-center gap-8 px-5 pt-[var(--header-height)] sm:px-8 lg:grid-cols-[34%_66%] lg:gap-6 lg:px-12">
 
         {/* MEDIA ZONE — dominant, first on mobile, taller for grandeur */}
-        <div className="relative order-1 h-[55vh] w-full sm:h-[60vh] lg:order-2 lg:-mr-12 lg:h-[86vh]">
+        <motion.div
+          className="relative order-1 h-[55vh] w-full sm:h-[60vh] lg:order-2 lg:-mr-12 lg:h-[86vh]"
+          style={{ y: reduce ? 0 : mediaY }}
+        >
           {FRAMES.map((frame, i) => (
             <CinematicFrame key={i} frame={frame} sx={sx} sy={sy} reduce={reduce} />
           ))}
-        </div>
+        </motion.div>
 
         {/* TEXT ZONE — compact, supporting (media leads the eye) */}
         <motion.div
@@ -285,22 +300,23 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           className="order-2 w-full pb-8 lg:order-1 lg:pb-0"
+          style={reduce ? undefined : { y: copyY, opacity: copyFade }}
         >
-          <motion.p variants={blurRise} className="text-eyebrow text-[--color-gold]">
+          <motion.p variants={blurRise} className="text-eyebrow text-(--color-gold)">
             Pre-Wedding Films &amp; Photography · Bijwasan, New Delhi
           </motion.p>
 
           <motion.h1
             variants={blurRise}
-            className="text-hero text-balance mt-5 max-w-[13ch] text-[--color-ink]"
+            className="text-hero text-balance mt-5 max-w-[13ch] text-(--color-ink)"
           >
             Where your story looks{' '}
-            <span className="accent-serif text-[--color-gold]">beautiful.</span>
+            <span className="accent-serif text-(--color-gold)">beautiful.</span>
           </motion.h1>
 
           <motion.p
             variants={blurRise}
-            className="text-body mt-5 max-w-[32ch] text-[--color-mist]"
+            className="text-body mt-5 max-w-[32ch] text-(--color-mist)"
           >
             A cinematic photoshoot destination in Delhi NCR.
           </motion.p>
@@ -311,7 +327,7 @@ export function HeroSection() {
           >
             <Link
               href="/spaces"
-              className="hover-lift inline-flex w-full sm:w-auto h-[54px] items-center justify-center gap-2.5 rounded-full bg-[--color-ink] px-9 text-label uppercase tracking-[0.18em] text-[--color-ivory]"
+              className="hover-lift inline-flex w-full sm:w-auto h-[54px] items-center justify-center gap-2.5 rounded-full bg-(--color-ink) px-9 text-label uppercase tracking-[0.18em] text-(--color-ivory)"
             >
               Explore The Villa
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -320,7 +336,7 @@ export function HeroSection() {
             </Link>
             <Link
               href="/book"
-              className="group relative py-2 text-label uppercase tracking-[0.18em] text-[--color-ink] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-[--color-ink]/40 after:transition-colors after:duration-300 hover:after:bg-[--color-ink]"
+              className="group relative py-2 text-label uppercase tracking-[0.18em] text-(--color-ink) after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-(--color-ink)/40 after:transition-colors after:duration-300 hover:after:bg-(--color-ink)"
             >
               Book a Visit
             </Link>
@@ -328,7 +344,7 @@ export function HeroSection() {
 
           <motion.p
             variants={blurRise}
-            className="mt-8 text-[0.72rem] tracking-[0.04em] text-[--color-mist]"
+            className="mt-8 text-[0.72rem] tracking-[0.04em] text-(--color-mist)"
           >
             Trusted by 1,200+ couples, creators &amp; brands.
           </motion.p>
@@ -336,12 +352,12 @@ export function HeroSection() {
       </div>
 
       {/* Shoot-type marquee — alive rhythm */}
-      <div className="relative z-10 overflow-hidden border-t border-[--color-ink]/10">
+      <div className="relative z-10 overflow-hidden border-t border-(--color-ink)/10">
         <div className="flex w-max animate-marquee py-4">
           {[...SHOOT_TYPES, ...SHOOT_TYPES].map((type, i) => (
             <span key={i} className="flex items-center whitespace-nowrap">
-              <span className="text-eyebrow px-6 text-[--color-mist]">{type}</span>
-              <span className="h-1 w-1 rounded-full bg-[--color-gold]/70" />
+              <span className="text-eyebrow px-6 text-(--color-mist)">{type}</span>
+              <span className="h-1 w-1 rounded-full bg-(--color-gold)/70" />
             </span>
           ))}
         </div>
@@ -349,11 +365,11 @@ export function HeroSection() {
 
       {/* Scroll cue */}
       <div className="absolute bottom-24 right-5 z-10 hidden flex-col items-center gap-2 sm:right-8 sm:flex lg:right-12">
-        <span className="text-[0.6rem] uppercase tracking-[0.25em] text-[--color-mist] [writing-mode:vertical-rl]">
+        <span className="text-[0.6rem] uppercase tracking-[0.25em] text-(--color-mist) [writing-mode:vertical-rl]">
           Scroll
         </span>
         <motion.span
-          className="h-10 w-px bg-[--color-mist]/40"
+          className="h-10 w-px bg-(--color-mist)/40"
           animate={reduce ? undefined : { scaleY: [0.3, 1, 0.3], originY: 0 }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         />

@@ -13,19 +13,19 @@ export const metadata: Metadata = {
 
 export default function SpacesPage() {
   return (
-    <div className="bg-[--color-ivory]">
+    <div className="bg-(--color-ivory)">
 
       {/* Page header */}
       <div
-        className="border-b border-[--color-beige]"
+        className="border-b border-(--color-beige)"
         style={{ paddingTop: 'calc(var(--header-height) + 3.5rem)' }}
       >
         <Container className="pb-14 sm:pb-16">
-          <p className="text-label text-[--color-mist] mb-4">Our Spaces</p>
-          <h1 className="font-display text-display-xl text-[--color-charcoal]">
+          <p className="text-label text-(--color-mist) mb-4">Our Spaces</p>
+          <h1 className="font-display text-display-xl text-(--color-charcoal)">
             {SPACES.length} cinematic<br className="hidden sm:block" /> backdrops.
           </h1>
-          <p className="mt-4 text-body text-[--color-mist] max-w-lg">
+          <p className="mt-4 text-body text-(--color-mist) max-w-lg">
             From palatial Indian settings to intimate European-inspired rooms — every space designed for exceptional photography.
           </p>
         </Container>

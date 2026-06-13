@@ -15,12 +15,12 @@ const SHOOT_TYPES = [
   { value: 'other', label: 'Other' },
 ] as const;
 
-const labelClass = 'block text-label text-[--color-mist] mb-2';
+const labelClass = 'block text-label text-(--color-mist) mb-2';
 const inputClass = cn(
-  'w-full bg-transparent border-b border-[--color-beige]',
-  'px-0 py-3 text-body text-[--color-charcoal]',
-  'placeholder:text-[--color-mist]/60',
-  'focus:outline-none focus:border-[--color-gold]',
+  'w-full bg-transparent border-b border-(--color-beige)',
+  'px-0 py-3 text-body text-(--color-charcoal)',
+  'placeholder:text-(--color-mist)/60',
+  'focus:outline-none focus:border-(--color-gold)',
   'transition-colors duration-200',
 );
 
@@ -52,10 +52,10 @@ export function InquiryForm() {
   if (status === 'success') {
     return (
       <div className="text-center py-12">
-        <p className="font-display text-display-lg text-[--color-charcoal] mb-3">
+        <p className="font-display text-display-lg text-(--color-charcoal) mb-3">
           Thank you.
         </p>
-        <p className="text-body text-[--color-mist]">
+        <p className="text-body text-(--color-mist)">
           We&apos;ll be in touch within 24 hours.
         </p>
       </div>

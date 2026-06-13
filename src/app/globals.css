@@ -275,6 +275,16 @@ body {
   animation: marquee 38s linear infinite;
 }
 
+/* Ken Burns — an imperceptible push-in that keeps full-bleed stills alive.
+   Applied to an oversized (-inset) wrapper so edges never show. */
+@keyframes kenburns {
+  0%   { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.07) translateY(-1.2%); }
+}
+.animate-kenburns {
+  animation: kenburns 30s ease-in-out infinite alternate;
+}
+
 /* Gentle float — for placeholder photo frames bobbing at rest. */
 @keyframes float-soft {
   0%, 100% { transform: translateY(0); }
@@ -297,7 +307,25 @@ body {
   .animate-sweep,
   .animate-marquee,
   .animate-float-soft,
-  .animate-shimmer {
+  .animate-shimmer,
+  .animate-kenburns {
     animation: none !important;
   }
+}
+
+/* ─── IMAGE TEXT OVERLAY — single source of truth ───────────────────────────
+   The benchmark readability system (the "Romantic" card). Every text-on-image
+   card/plate uses THIS gradient so contrast is identical site-wide: white/ivory
+   text over a controlled cinematic dark base that fades cleanly to transparent,
+   never muddying the upper image. Pair with text-[--color-ivory]. */
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 12, 8, 0.82) 0%,
+    rgba(18, 12, 8, 0.32) 38%,
+    transparent 70%
+  );
+  pointer-events: none;
 }

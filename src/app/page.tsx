@@ -5,6 +5,7 @@ import { IntroStatement } from '@/components/sections/IntroStatement';
 import { ChooseYourStory } from '@/components/sections/ChooseYourStory';
 import { ShootCategories } from '@/components/sections/ShootCategories';
 import { SpacesPreview } from '@/components/sections/SpacesPreview';
+import { CinematicInterlude } from '@/components/sections/CinematicInterlude';
 import { EditorialStory } from '@/components/sections/EditorialStory';
 import { StoriesFromVilla } from '@/components/sections/StoriesFromVilla';
 import { GalleryMoments } from '@/components/sections/GalleryMoments';
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
  *   choose-story  → self-insertion        [NEW skeleton]
  *   categories    → shoot types           [V1 style — to be updated]
  *   spaces        → the backdrops         [V1 style — to be updated]
+ *   interlude     → the emotional peak: full-bleed night palace, near-silent
  *   editorial     → why villa             [V1 style — to be updated]
  *   stories       → social proof          [NEW skeleton]
  *   gallery       → visual proof          [V1 style — to be updated]
@@ -39,6 +41,7 @@ export default function HomePage() {
       <ChooseYourStory />
       <ShootCategories />
       <SpacesPreview />
+      <CinematicInterlude />
       <EditorialStory />
       <StoriesFromVilla />
       <GalleryMoments />

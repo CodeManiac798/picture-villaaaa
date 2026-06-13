@@ -21,18 +21,18 @@ interface PlateProps {
 function Plate({ className, caption, meta, src, alt, sizes }: PlateProps) {
   return (
     <figure className={className}>
-      <div className="group relative h-full overflow-hidden rounded-[var(--radius-card)] bg-[--color-beige] shadow-[0_24px_60px_-26px_rgba(40,24,16,0.5)]">
+      <div className="group relative h-full overflow-hidden rounded-[var(--radius-card)] bg-(--color-beige) shadow-[0_24px_60px_-26px_rgba(40,24,16,0.5)]">
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-cover object-center transition-transform duration-[1300ms] ease-[--ease-luxury] group-hover:scale-[1.06]"
+          className="object-cover object-center transition-transform duration-[1300ms] ease-(--ease-luxury) group-hover:scale-[1.06]"
           sizes={sizes}
         />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#1a120c]/65 to-transparent" aria-hidden="true" />
+        <div className="img-overlay" aria-hidden="true" />
         <figcaption className="absolute inset-x-0 bottom-0 flex items-baseline justify-between p-5 sm:p-6">
-          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-ivory]/80">{caption}</span>
-          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-[--color-ivory]/50">{meta}</span>
+          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-(--color-ivory)/80">{caption}</span>
+          <span className="text-[0.625rem] tracking-[0.25em] uppercase text-(--color-ivory)/50">{meta}</span>
         </figcaption>
       </div>
     </figure>
@@ -41,7 +41,7 @@ function Plate({ className, caption, meta, src, alt, sizes }: PlateProps) {
 
 export function GalleryMoments() {
   return (
-    <section className="bg-[--color-ivory] pb-20 sm:pb-24 lg:pb-28">
+    <section className="bg-(--color-cream) pb-20 sm:pb-24 lg:pb-28">
 
       {/* Hero plate — near full-bleed, overlapping the story section above */}
       <div className="relative z-10 -mt-24 sm:-mt-32 lg:-mt-40 px-3 sm:px-6">
@@ -74,12 +74,12 @@ export function GalleryMoments() {
 
           <div className="lg:col-span-4 lg:px-6">
             <Reveal delay={0.1}>
-              <p className="text-eyebrow text-[--color-gold]">The Work</p>
-              <p className="mt-5 text-heading text-balance text-[--color-ink]">
+              <p className="text-eyebrow text-(--color-gold)">The Work</p>
+              <p className="mt-5 text-heading text-balance text-(--color-ink)">
                 Nothing here is borrowed.{' '}
-                <span className="accent-serif text-[--color-mist]">Everything is kept.</span>
+                <span className="accent-serif text-(--color-mist)">Everything is kept.</span>
               </p>
-              <p className="mt-5 text-body text-[--color-mist] leading-relaxed">
+              <p className="mt-5 text-body text-(--color-mist) leading-relaxed">
                 Every space is built, dressed and maintained on the estate — so every
                 frame feels like a destination shoot, twenty minutes from the city.
               </p>
@@ -87,11 +87,11 @@ export function GalleryMoments() {
                 href={SITE.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-7 inline-flex items-center gap-4 text-label tracking-[0.2em] uppercase text-[--color-charcoal]"
+                className="group mt-7 inline-flex items-center gap-4 text-label tracking-[0.2em] uppercase text-(--color-charcoal)"
               >
                 Recent work — {SITE.social.instagramHandle}
                 <span
-                  className="h-px w-10 bg-[--color-charcoal] transition-all duration-500 ease-[--ease-luxury] group-hover:w-16 group-hover:bg-[--color-gold]"
+                  className="h-px w-10 bg-(--color-charcoal) transition-all duration-500 ease-(--ease-luxury) group-hover:w-16 group-hover:bg-(--color-gold)"
                   aria-hidden="true"
                 />
               </a>

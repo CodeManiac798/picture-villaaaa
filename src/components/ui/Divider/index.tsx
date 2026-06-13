@@ -13,9 +13,9 @@ const widthClasses = {
 };
 
 const colorClasses = {
-  gold: 'border-[--color-gold] opacity-40',
-  subtle: 'border-[--color-beige]',
-  bold: 'border-[--color-sandstone]',
+  gold: 'border-(--color-gold) opacity-40',
+  subtle: 'border-(--color-beige)',
+  bold: 'border-(--color-sandstone)',
 };
 
 export function Divider({ variant = 'subtle', width = 'full', className }: DividerProps) {
