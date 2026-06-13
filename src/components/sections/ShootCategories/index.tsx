@@ -10,7 +10,7 @@ import { Reveal } from '@/components/ui/Reveal';
  */
 export function ShootCategories() {
   return (
-    <section className="bg-(--color-cream) py-20 sm:py-24 lg:py-28 overflow-hidden">
+    <section className="bg-(--color-cream) pt-14 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 overflow-hidden">
       <Container>
 
         {/* Header */}
@@ -32,23 +32,28 @@ export function ShootCategories() {
           </Reveal>
         </div>
 
-        {/* Category covers — offset rhythm */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
-          {SHOOT_CATEGORIES.map((cat, i) => (
+        {/* Category covers — editorial hierarchy: the first (pre-wedding, our
+            primary audience) reads as the dominant lead; the other two sit
+            raised and slightly smaller as supporting moments. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 lg:items-start">
+          {SHOOT_CATEGORIES.map((cat, i) => {
+            const featured = i === 0;
+            return (
             <Reveal
               key={cat.slug}
               y={40}
               delay={i * 0.1}
-              className={i === 1 ? 'lg:mt-12' : i === 2 ? 'lg:mt-24' : undefined}
+              className={featured ? 'lg:row-span-2' : i === 1 ? 'lg:mt-16' : 'lg:mt-28'}
             >
               <Link href={`/shoots/${cat.slug}`} className="group block" aria-label={cat.name}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-card)] bg-(--color-beige) shadow-[0_22px_54px_-24px_rgba(40,24,16,0.45)]">
+                <div className={`relative overflow-hidden rounded-[var(--radius-card)] bg-(--color-beige) shadow-[0_22px_54px_-24px_rgba(40,24,16,0.45)] ${featured ? 'aspect-[4/5] lg:aspect-[3/4.4]' : 'aspect-[4/5]'}`}>
                   <Image
                     src={cat.cover}
                     alt={cat.coverAlt}
                     fill
                     className="object-cover object-center transition-transform duration-[1200ms] ease-(--ease-luxury) group-hover:scale-[1.07]"
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 32vw"
+                    sizes={featured ? '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 40vw' : '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw'}
+                    priority={featured}
                   />
                   {/* warm grade tint to unify tones */}
                   <div
@@ -59,11 +64,11 @@ export function ShootCategories() {
                   <div className="img-overlay" aria-hidden="true" />
 
                   {/* Identity */}
-                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <div className={featured ? 'absolute inset-x-0 bottom-0 p-7 sm:p-9' : 'absolute inset-x-0 bottom-0 p-6 sm:p-7'}>
                     <p className="text-[0.625rem] tracking-[0.25em] uppercase text-(--color-gold-light)">
                       {cat.eyebrow}
                     </p>
-                    <h3 className="mt-2 font-display text-2xl sm:text-3xl text-(--color-ivory) transition-transform duration-500 ease-(--ease-luxury) group-hover:-translate-y-0.5">
+                    <h3 className={`mt-2 font-display text-(--color-ivory) transition-transform duration-500 ease-(--ease-luxury) group-hover:-translate-y-0.5 ${featured ? 'text-3xl sm:text-4xl lg:text-[2.75rem] lg:leading-[1.05]' : 'text-xl sm:text-2xl'}`}>
                       {cat.name}
                     </h3>
                     <span className="mt-4 inline-flex items-center gap-3 text-[0.625rem] tracking-[0.22em] uppercase text-(--color-ivory)/85">
@@ -74,7 +79,8 @@ export function ShootCategories() {
                 </div>
               </Link>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

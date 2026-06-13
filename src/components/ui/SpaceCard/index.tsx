@@ -72,8 +72,8 @@ export function SpaceCard({ space, className, aspect = 'portrait', size = 'base'
           />
         )}
 
-        {/* Caption scrim — benchmark readability tones, deepens on hover */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#120c08]/82 via-[#120c08]/32 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true" />
+        {/* Caption scrim — unified readability system, deepens on hover */}
+        <div className="img-overlay-interactive" aria-hidden="true" />
 
         {/* Name over the image — rises slightly on hover */}
         <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">

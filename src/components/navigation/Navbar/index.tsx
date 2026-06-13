@@ -54,22 +54,22 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.22em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)"
+            className="whitespace-nowrap font-display text-[1.0625rem] uppercase tracking-[0.3em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)"
             aria-label="The Picture Villa — home"
           >
             The Picture Villa
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-7 lg:flex xl:gap-9" aria-label="Primary navigation">
+          <nav className="hidden items-center gap-9 lg:flex xl:gap-12" aria-label="Primary navigation">
             {NAV_CONFIG.primary.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'relative text-label text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)',
-                  'after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-(--color-gold)',
-                  'after:origin-right after:scale-x-0 after:transition-transform after:duration-500',
+                  'relative text-label tracking-[0.2em] text-(--color-charcoal) transition-colors duration-300 hover:text-(--color-gold)',
+                  'after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:bg-(--color-gold)',
+                  'after:origin-right after:scale-x-0 after:transition-transform after:duration-500 after:ease-(--ease-luxury)',
                   'hover:after:origin-left hover:after:scale-x-100',
                 )}
               >
@@ -79,7 +79,7 @@ export function Navbar() {
           </nav>
 
           {/* Desktop right cluster — Instagram + CTA */}
-          <div className="hidden items-center gap-5 lg:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             <a
               href={SITE.social.instagram}
               target="_blank"

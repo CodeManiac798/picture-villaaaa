@@ -84,13 +84,16 @@ function StoryCard({ archetype }: { archetype: StoryArchetype }) {
         aria-hidden="true"
       />
 
+      {/* unified readability overlay — the benchmark system */}
+      <div className="img-overlay" aria-hidden="true" />
+
       {/* archetype number — top right, very quiet */}
       <div className="absolute right-4 top-4 font-display text-[0.6rem] italic text-white/40">
         {archetype.number}
       </div>
 
       {/* bottom panel — name always, copy expands */}
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-5">
+      <div className="absolute inset-x-0 bottom-0 p-5">
         <p className="text-eyebrow text-[0.5rem] text-white/60">{archetype.descriptor}</p>
         <p className="mt-1 text-sm font-medium leading-tight tracking-tight text-white">
           {archetype.name}

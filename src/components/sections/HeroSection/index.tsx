@@ -303,22 +303,23 @@ export function HeroSection() {
           style={reduce ? undefined : { y: copyY, opacity: copyFade }}
         >
           <motion.p variants={blurRise} className="text-eyebrow text-(--color-gold)">
-            Pre-Wedding Films &amp; Photography · Bijwasan, New Delhi
+            A Cinematic Estate · Twenty Minutes from Delhi
           </motion.p>
 
           <motion.h1
             variants={blurRise}
-            className="text-hero text-balance mt-5 max-w-[13ch] text-(--color-ink)"
+            className="text-hero text-balance mt-7 max-w-[14ch] text-(--color-ink)"
           >
-            Where your story looks{' '}
-            <span className="accent-serif text-(--color-gold)">beautiful.</span>
+            Your story deserves a{' '}
+            <span className="accent-serif text-(--color-gold)">world of its own.</span>
           </motion.h1>
 
           <motion.p
             variants={blurRise}
-            className="text-body mt-5 max-w-[32ch] text-(--color-mist)"
+            className="text-body-lg mt-7 max-w-[34ch] text-(--color-mist)"
           >
-            A cinematic photoshoot destination in Delhi NCR.
+            Eighteen built worlds where the light is already perfect — and every
+            frame looks like a film.
           </motion.p>
 
           <motion.div

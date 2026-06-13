@@ -50,8 +50,8 @@
   --color-accent:     #B08A57;
   --color-champagne:  #D8C7AE;
 
-  --header-height: 76px;
-  --header-height-sm: 62px;
+  --header-height: 88px;
+  --header-height-sm: 68px;
 }
 
 /* ─── BASE RESET ─────────────────────────────────────────────────────────── */
@@ -324,8 +324,27 @@ body {
   background: linear-gradient(
     to top,
     rgba(18, 12, 8, 0.82) 0%,
-    rgba(18, 12, 8, 0.32) 38%,
-    transparent 70%
+    rgba(18, 12, 8, 0.32) 45%,
+    transparent 100%
   );
   pointer-events: none;
+}
+
+/* Hover-deepen variant — for interactive cards that "wake up" on hover.
+   Same readability floor at rest; intensifies slightly when focused. */
+.img-overlay-interactive {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 12, 8, 0.82) 0%,
+    rgba(18, 12, 8, 0.32) 45%,
+    transparent 100%
+  );
+  opacity: 0.92;
+  transition: opacity 500ms var(--ease-luxury);
+  pointer-events: none;
+}
+.group:hover .img-overlay-interactive {
+  opacity: 1;
 }

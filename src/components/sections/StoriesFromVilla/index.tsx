@@ -70,7 +70,7 @@ function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
           {/* caption chip — slides up on hover */}
           {item.caption && (
             <div className="absolute inset-x-0 bottom-0 translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0">
-              <div className="bg-gradient-to-t from-black/55 via-black/10 to-transparent p-4">
+              <div className="bg-gradient-to-t from-[#120c08]/82 via-[#120c08]/32 to-transparent p-4 pt-10">
                 <p className="text-eyebrow text-[0.5rem] text-white/75">{item.caption}</p>
               </div>
             </div>
