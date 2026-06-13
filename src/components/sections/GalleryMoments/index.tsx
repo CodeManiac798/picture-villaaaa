@@ -43,8 +43,9 @@ export function GalleryMoments() {
   return (
     <section className="bg-(--color-cream) pb-20 sm:pb-24 lg:pb-28">
 
-      {/* Hero plate — near full-bleed, overlapping the story section above */}
-      <div className="relative z-10 -mt-24 sm:-mt-32 lg:-mt-40 px-3 sm:px-6">
+      {/* Hero plate — near full-bleed. Editorial overlap on tablet/desktop; on
+          mobile it flows below so it never covers the story CTA above. */}
+      <div className="relative z-10 mt-10 sm:-mt-32 lg:-mt-40 px-3 sm:px-6">
         <Reveal y={40}>
           <Plate
             className="h-[52vh] sm:h-[64vh]"

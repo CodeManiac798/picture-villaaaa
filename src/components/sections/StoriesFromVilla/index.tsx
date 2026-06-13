@@ -32,19 +32,12 @@ const CATEGORY_GRADES: Record<GalleryItem['category'], string> = {
   space:      'linear-gradient(165deg, #F0E5D5 0%, #D8C2A0 45%, #A08264 78%, #5A4030 100%)',
 };
 
-/* Grid placement — 3 columns desktop, varied row-spans for masonry feel. */
-const SPAN_CLASSES: Record<GalleryItem['span'], string> = {
-  tall:   'row-span-2',
-  wide:   'col-span-2',
-  square: '',
-};
-
 function GalleryCell({ item, index }: { item: GalleryItem; index: number }) {
   const aspectClass = item.span === 'tall' ? 'aspect-[3/4]' : item.span === 'wide' ? 'aspect-[16/9]' : 'aspect-square';
 
   return (
-    <Reveal delay={index * 0.05} y={14}>
-      <div className={`group relative overflow-hidden rounded-[var(--radius-card)] ${SPAN_CLASSES[item.span]}`}>
+    <Reveal delay={index * 0.05} y={14} className="mb-3 break-inside-avoid sm:mb-4 lg:mb-5">
+      <div className="group relative overflow-hidden rounded-[var(--radius-card)]">
         <div className={`relative w-full overflow-hidden ${aspectClass}`}>
           {/* ── MEDIA SLOT ───────────────────────────────────────────────────────
               Real image is rendered when item.image?.src is present. */}
@@ -115,8 +108,8 @@ export function StoriesFromVilla() {
           </Reveal>
         </div>
 
-        {/* Masonry grid */}
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+        {/* Masonry — true CSS columns so cards pack gaplessly at every width */}
+        <div className="mt-10 columns-2 gap-3 sm:gap-4 lg:columns-3 lg:gap-5">
           {STORIES_GALLERY.map((item, i) => (
             <GalleryCell key={item.id} item={item} index={i} />
           ))}
